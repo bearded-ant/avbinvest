@@ -1,11 +1,7 @@
 services:
   web-service:
-    image: python:3.11-slim
+    build: .
     container_name: web-service
-    working_dir: /app
-    volumes:
-      - ./app.py:/app/app.py:ro
-    command: sh -c "apt-get update && apt-get install -y curl && pip install flask && python app.py"
     networks:
       - app-network
     healthcheck:
